@@ -22,7 +22,7 @@ function getWeatherCity(location){
           res.on('end', () =>{
             try{
               const weather = JSON.parse(body);
-              printWeather(weather.name, weather.main.temp);
+              printWeather(weather);
             } catch(error){
               printError(error);
             }
@@ -52,7 +52,7 @@ function getWeatherZip(postCode){
           //Parse the data
           try{
             const weather = JSON.parse(body);
-            printWeather(weather.name, weather.main.temp);
+            printWeather(weather);
           } catch(error){
             printError(error);
           }
@@ -69,8 +69,8 @@ function getWeatherZip(postCode){
 }
 
 //Print the weather
-function printWeather(location, temperature){
-  console.log(`Current temperature for ${location} is ${temperature} C`);
+function printWeather(weather){
+  console.log(`Current temperature for ${weather.name} is ${weather.main.temp} C`);
 }
 
 exports.getWeatherCity = getWeatherCity;
