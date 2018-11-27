@@ -58,7 +58,7 @@ function getWeatherZip(postCode){
           }
         });
       } else{
-        const message = `There was an error getting the weather for ${location}: (${http.STATUS_CODES[res.statusCode]})`;
+        const message = `There was an error getting the weather for ${postCode}: (${http.STATUS_CODES[res.statusCode]})`;
         const statusCodeError = new Error(message);
         printError(statusCodeError);
       }
