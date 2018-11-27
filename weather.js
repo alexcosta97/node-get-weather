@@ -1,6 +1,6 @@
 const https = require('https');
 const http = require('http');
-const APIKEY = '4210250c3a7fb46ae7a6401ea4e72e29';
+const api = require('./api.json');
 
 //Function to print error messages
 
@@ -11,7 +11,7 @@ function printError(error){
 //Connect to the API URL for a city
 function getWeatherCity(location){
   try{
-    const request = https.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APIKEY}`, res => {
+    const request = https.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${api.key}`, res => {
       if(res.statusCode === 200){
           //Read the data
           let body = '';
@@ -41,7 +41,7 @@ function getWeatherCity(location){
 //Connect to the API URL for a post code
 function getWeatherZip(postCode){
   try{
-    const request = https.get(`https://api.openweathermap.org/data/2.5/weather?zip=${postCode}&units=metric&APPID=${APIKEY}`, res => {
+    const request = https.get(`https://api.openweathermap.org/data/2.5/weather?zip=${postCode}&units=metric&APPID=${api.key}`, res => {
       if(res.statusCode === 200){
         //Read the data
         let body = '';
