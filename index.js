@@ -11,3 +11,9 @@ locations.forEach(function(location){
     weather.getWeatherZip(location);
   }
 });
+
+//@TODO: Create models to store weather per city (city with postcodes), weather(refs city)
+//@TODO: Create model-specific find methods
+//@TODO: Create controllers to get and put weather
+//@TODO: Create routes for get controllers
+//@TODO: Create main server program with event scheduler to get updated weather
